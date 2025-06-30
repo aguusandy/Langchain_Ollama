@@ -1,3 +1,10 @@
-# Rag Langchain Ollama
+# Langchain Ollama Projects Repository
 
-AI Agent RAG for pdf documents using Langchain and Ollama
+<ul>
+  <li>
+    AI Agent RAG for pdf documents using Langchain and Ollama
+  </li>
+  <li>
+    AI SQL Agent using Langchain and Ollama
+  </li>
+</ul>
