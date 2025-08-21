@@ -1,3 +1,6 @@
+import os
+os.environ["OLLAMA_BASE_URL"] = "http://host.docker.internal:11434" #"http://127.0.0.1:11434"
+
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from typing_extensions import Annotated, TypedDict
 from langchain_community.utilities import SQLDatabase
@@ -62,7 +65,7 @@ class ChatBot:
         #     messages = history["messages"]
         messages = []
         messages = messages + [HumanMessage(question)]
-        print(f"Messages: {messages}")
+        # print(f"Messages: {messages}")
         result = self.app.invoke(
             {"messages": messages, "language": self.language}, 
             {"configurable": {"thread_id": self.thread_id}}
@@ -71,5 +74,5 @@ class ChatBot:
         #     {"messages": messages, "language": self.language}, 
         #     config={"configurable": {"thread_id": self.thread_id}}
         # )
-        response = result["messages"][-1].pretty_print()
+        response = result["messages"][-1].content
         return response
